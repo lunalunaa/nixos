@@ -85,6 +85,7 @@
             home-manager.extraSpecialArgs = {
               inherit nix-vscode-extensions;
               inherit pkgs-unstable;
+              inherit inputs;
             };
             home-manager.backupFileExtension = "backup";
           }

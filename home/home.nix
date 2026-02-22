@@ -183,15 +183,6 @@
       "toml"
       "rust"
     ];
-
-    # Declaratively manage your settings.json
-    userSettings = {
-      vim_mode = true;
-      theme = {
-        mode = "system";
-        dark = "One Dark";
-      };
-    };
   };
 
   # This value determines the home Manager release that your
