@@ -175,7 +175,7 @@
     enable = true;
 
     # Override the default Nixpkgs version with the latest from the flake
-    package = inputs.zed.packages.${pkgs.system}.default;
+    package = inputs.zed.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
     # Declaratively manage extensions
     extensions = [
