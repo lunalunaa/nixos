@@ -1,6 +1,7 @@
 {
   pkgs,
   pkgs-unstable,
+  inputs,
   ...
 }:
 {
@@ -93,13 +94,13 @@
         "serverPath" = "nixd";
         "serverSettings" = {
           "nixpkgs" = {
-            "expr" = "import (builtins.getFlake \"/home/luna/nixos-config\").inputs.nixpkgs { }   ";
+            "expr" = "import (builtins.getFlake \"/home/luna/dotfiles/nixos\").inputs.nixpkgs { }   ";
           }; # todo: change hardcoded tsuki to get it from nix instead
           "nixd" = {
             "formatting"."command" = [ "nixfmt" ];
             "options" = {
               "nixos" = {
-                "expr" = "(builtins.getFlake \"/home/luna/nixos-config\").nixosConfigurations.tsuki.options";
+                "expr" = "(builtins.getFlake \"/home/luna/dotfiles/nixos\").nixosConfigurations.tsuki.options";
               };
               "home-manager" = {
                 "expr" =
@@ -165,6 +166,32 @@
   programs.eza = {
     enable = true;
     enableFishIntegration = true;
+  };
+
+  nixGL.vulkan.enable = true;
+
+  # OPTION B: Use the Home Manager module (Recommended)
+  programs.zed-editor = {
+    enable = true;
+
+    # Override the default Nixpkgs version with the latest from the flake
+    package = inputs.zed.packages.${pkgs.system}.default;
+
+    # Declaratively manage extensions
+    extensions = [
+      "nix"
+      "toml"
+      "rust"
+    ];
+
+    # Declaratively manage your settings.json
+    userSettings = {
+      vim_mode = true;
+      theme = {
+        mode = "system";
+        dark = "One Dark";
+      };
+    };
   };
 
   # This value determines the home Manager release that your

@@ -26,6 +26,7 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zed.url = "github:zed-industries/zed";
   };
 
   outputs =
@@ -46,14 +47,6 @@
         inherit system;
         config.allowUnfree = true;
       };
-      # pkgs = import nixpkgs {
-      #   inherit system;
-      #   config.allowUnfree = true;
-      #   overlays = [
-      #     inputs.niri.overlays.niri
-      #     nix-vscode-extensions.overlays.default
-      #   ];
-      # };
     in
     {
       # Please replace my-nixos with your hostname

@@ -1,4 +1,8 @@
-{ pkgs, pkgs-unstable, ... }:
+{
+  pkgs,
+  pkgs-unstable,
+  ...
+}:
 {
   # Packages that should be installed to the user profile.
   home.packages =
