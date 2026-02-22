@@ -11,7 +11,7 @@
     };
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions/master";
     catppuccin = {
-      url = "github:catppuccin/nix";
+      url = "github:catppuccin/nix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     niri = {
@@ -57,7 +57,7 @@
     in
     {
       # Please replace my-nixos with your hostname
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.tsuki = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
           # inherit pkgs;
