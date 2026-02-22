@@ -97,7 +97,6 @@
             "expr" = "import (builtins.getFlake \"/home/luna/dotfiles/nixos\").inputs.nixpkgs { }   ";
           }; # todo: change hardcoded tsuki to get it from nix instead
           "nixd" = {
-            "formatting"."command" = [ "nixfmt" ];
             "options" = {
               "nixos" = {
                 "expr" = "(builtins.getFlake \"/home/luna/dotfiles/nixos\").nixosConfigurations.tsuki.options";
@@ -168,7 +167,7 @@
     enableFishIntegration = true;
   };
 
-  nixGL.vulkan.enable = true;
+  targets.genericLinux.nixGL.vulkan.enable = true;
 
   # OPTION B: Use the Home Manager module (Recommended)
   programs.zed-editor = {
