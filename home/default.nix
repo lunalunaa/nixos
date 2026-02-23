@@ -5,7 +5,7 @@
     ./core.nix
     ./shell.nix
     ./git.nix
-    ./editors.nix
+    ./editors
     ./packages.nix
     ./desktop
   ];
