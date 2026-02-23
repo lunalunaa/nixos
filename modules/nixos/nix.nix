@@ -8,6 +8,13 @@
         "flakes"
       ];
 
+      substituters = [
+        "https://cache.nixos-cuda.org"
+      ];
+      trusted-public-keys = [
+        "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
+      ];
+
       # Allow the primary user to manage the Nix store without sudo.
       trusted-users = [
         "root"
