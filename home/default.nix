@@ -8,5 +8,6 @@
     ./editors
     ./packages.nix
     ./desktop
+    ./default-apps
   ];
 }
