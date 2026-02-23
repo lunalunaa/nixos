@@ -10,6 +10,6 @@
     ];
     # Fish is set as the login shell at the system level so it is available
     # before Home Manager activates.
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
   };
 }

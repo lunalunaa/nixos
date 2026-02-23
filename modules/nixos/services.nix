@@ -28,6 +28,8 @@
   # (e.g. downloaded scripts, VSCode extensions) run without patching.
   programs.nix-ld.enable = true;
 
+  programs.zsh.enable = true;
+
   # ------------------------------------------------------------------ #
   # Network / remote access
   # ------------------------------------------------------------------ #

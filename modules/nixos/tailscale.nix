@@ -1,15 +1,10 @@
-{ config, ... }:
+{ pkgs-unstable, ... }:
 
 {
   # 1. Enable the service and the firewall
-  services.tailscale.enable = true;
-  networking.nftables.enable = true;
-  networking.firewall = {
+  services.tailscale = {
     enable = true;
-    # Always allow traffic from your Tailscale network
-    trustedInterfaces = [ "tailscale0" ];
-    # Allow the Tailscale UDP port through the firewall
-    allowedUDPPorts = [ config.services.tailscale.port ];
+    package = pkgs-unstable.tailscale;
   };
 
   # 2. Force tailscaled to use nftables (Critical for clean nftables-only systems)
