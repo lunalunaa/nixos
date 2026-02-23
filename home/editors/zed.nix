@@ -25,5 +25,5 @@
   # filesystem symlink rather than a Nix store path, so you can edit the
   # file and have Zed pick up changes without running `home-manager switch`.
   xdg.configFile."zed/settings.json".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home/zed/settings.json";
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home/editors/zed/settings.json";
 }
