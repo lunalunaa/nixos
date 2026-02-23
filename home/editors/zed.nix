@@ -19,11 +19,4 @@
       "rust"
     ];
   };
-
-  # Link the Zed settings file from the dotfiles repo directly into
-  # ~/.config/zed/settings.json.  mkOutOfStoreSymlink creates a plain
-  # filesystem symlink rather than a Nix store path, so you can edit the
-  # file and have Zed pick up changes without running `home-manager switch`.
-  xdg.configFile."zed/settings.json".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nixos/home/editors/zed/settings.json";
 }
