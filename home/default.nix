@@ -1,7 +1,12 @@
+# home/default.nix — entry point for the Home Manager configuration.
+# Each file covers a single concern; add new imports here to extend the config.
 {
   imports = [
-    ./home.nix
-    ./niri
-    ./home-packages.nix
+    ./core.nix
+    ./shell.nix
+    ./git.nix
+    ./editors.nix
+    ./packages.nix
+    ./desktop
   ];
 }

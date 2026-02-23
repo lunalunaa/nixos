@@ -1,99 +1,68 @@
 {
-  description = "A simple NixOS flake";
+  description = "Luna's NixOS configuration";
 
   inputs = {
-    # NixOS official package source, using the nixos-25.11 branch here
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions/master";
+
     catppuccin = {
       url = "github:catppuccin/nix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     niri = {
       url = "github:sodiboo/niri-flake/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     zed.url = "github:zed-industries/zed";
   };
 
   outputs =
-    inputs@{
-      self,
-      nixpkgs,
-      home-manager,
-      nixpkgs-unstable,
-      nix-vscode-extensions,
-      niri,
-      catppuccin,
-      sops-nix,
-      ...
-    }:
-    let
-      system = "x86_64-linux";
-      pkgs-unstable = import nixpkgs-unstable {
-        inherit system;
-        config.allowUnfree = true;
+    inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" ];
+
+      # nixosConfigurations live in the flake-level output, not perSystem,
+      # because they are tied to a specific host rather than a build platform.
+      flake = {
+        nixosConfigurations = import ./hosts { inherit inputs; };
       };
-    in
-    {
-      # Please replace my-nixos with your hostname
-      nixosConfigurations.tsuki = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
-          # inherit pkgs;
-          inherit pkgs-unstable;
+
+      perSystem =
+        { pkgs, ... }:
+        {
+          # `nix fmt` will format the whole repo with nixfmt.
+          formatter = pkgs.nixfmt-rfc-style;
+
+          # `nix develop` drops you into a shell with Nix LSP tooling.
+          devShells.default = pkgs.mkShell {
+            name = "nixos-config";
+            packages = with pkgs; [
+              nixd
+              nil
+              nixfmt-rfc-style
+            ];
+          };
         };
-        modules = [
-          {
-            nixpkgs = {
-              inherit system;
-              config.allowUnfree = true;
-              overlays = [
-                inputs.niri.overlays.niri
-                nix-vscode-extensions.overlays.default
-              ];
-            };
-          }
-          ./configuration.nix
-          catppuccin.nixosModules.catppuccin
-
-          # home manager
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-
-            home-manager.users.luna = {
-              imports = [
-                ./home
-                catppuccin.homeModules.catppuccin
-              ];
-            };
-            home-manager.extraSpecialArgs = {
-              inherit nix-vscode-extensions;
-              inherit pkgs-unstable;
-              inherit inputs;
-            };
-            home-manager.backupFileExtension = "backup";
-          }
-
-          # niri
-          niri.nixosModules.niri
-          sops-nix.nixosModules.sops
-        ];
-      };
     };
 }
