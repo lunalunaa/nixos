@@ -1,6 +1,7 @@
 # modules/nixos/services.nix — system services, daemons, and globally-installed programs.
 { pkgs, ... }:
 {
+  imports = [ ./tailscale.nix ];
   # ------------------------------------------------------------------ #
   # Globally-available CLI tools
   # ------------------------------------------------------------------ #
@@ -40,9 +41,6 @@
       PermitRootLogin = "no";
     };
   };
-
-  # Tailscale VPN mesh — systemd service + CLI.
-  services.tailscale.enable = true;
 
   # ------------------------------------------------------------------ #
   # Printing
