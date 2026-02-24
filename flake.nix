@@ -35,6 +35,8 @@
     };
 
     zed.url = "github:zed-industries/zed";
+
+    claude-code.url = "github:sadjow/claude-code-nix";
   };
 
   outputs =

@@ -109,6 +109,7 @@
       # ---------------------------------------------------------------- #
       cowsay
       gnupg
+      claude-code
     ])
     ++ (with pkgs-unstable; [
       qbittorrent-enhanced
