@@ -10,4 +10,7 @@
   };
 
   environment.systemPackages = [ pkgs.podman-compose ];
+
+  # Generate a CDI spec on boot so rootless Podman can access the NVIDIA GPU.
+  hardware.nvidia-container-toolkit.enable = true;
 }
