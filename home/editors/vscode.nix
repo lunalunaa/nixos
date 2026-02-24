@@ -11,7 +11,7 @@
   programs.vscode = {
     enable = true;
     # VSCodium — identical to VS Code but with Microsoft telemetry stripped out.
-    package = pkgs-unstable.vscodium;
+    package = pkgs-unstable.vscode;
 
     profiles.default = {
       # Let Nix own the version; disable the editor's built-in update checks.
