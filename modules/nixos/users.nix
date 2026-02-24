@@ -6,6 +6,7 @@
     description = vars.username;
     extraGroups = [
       "networkmanager"
+      "podman"
       "wheel"
     ];
     # Fish is set as the login shell at the system level so it is available

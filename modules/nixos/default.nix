@@ -3,6 +3,7 @@
 {
   imports = [
     ./boot.nix
+    ./containers.nix
     # ./cuda.nix
     ./fish.nix
     ./fonts.nix
