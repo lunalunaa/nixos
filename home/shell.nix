@@ -49,6 +49,7 @@
     settings = {
       shell = "fish";
       enable_audio_bell = false;
+      window_padding_width = 5;
     };
     shellIntegration.enableFishIntegration = true;
   };
