@@ -7,6 +7,7 @@
     ./git.nix
     ./editors
     ./packages.nix
+    ./nodejs.nix
     ./desktop
     ./default-apps.nix
   ];
