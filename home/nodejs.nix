@@ -12,5 +12,13 @@
   '';
 
   # Expose globally-installed npm binaries in PATH.
-  home.sessionPath = [ "$HOME/.npm-global/bin" ];
+  # home.sessionPath isn't sourced by fish, so set it explicitly there too.
+  home.sessionPath = [
+    "$HOME/.npm-global/bin"
+    "$HOME/.local/bin"
+  ];
+  programs.fish.shellInit = ''
+    fish_add_path --prepend --global "$HOME/.npm-global/bin"
+    fish_add_path --prepend --global "$HOME/.local/bin"
+  '';
 }

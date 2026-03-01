@@ -4,6 +4,7 @@
 {
   pkgs,
   pkgs-unstable,
+  inputs,
   ...
 }:
 {
@@ -96,6 +97,7 @@
       motrix
       mpv
       vivaldi
+      ffmpeg
 
       # ---------------------------------------------------------------- #
       # Productivity
@@ -109,7 +111,6 @@
       # ---------------------------------------------------------------- #
       cowsay
       gnupg
-      claude-code
     ])
     ++ (with pkgs-unstable; [
       qbittorrent-enhanced

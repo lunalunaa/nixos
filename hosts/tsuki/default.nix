@@ -26,7 +26,6 @@ inputs.nixpkgs.lib.nixosSystem {
         overlays = [
           inputs.niri.overlays.niri
           inputs.nix-vscode-extensions.overlays.default
-          inputs.claude-code.overlays.default
         ];
       };
     }
