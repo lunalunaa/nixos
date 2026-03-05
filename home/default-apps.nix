@@ -13,6 +13,6 @@
 
   # Optional: Set the environment variable just in case
   home.sessionVariables = {
-    BROWSER = "firefox";
+    BROWSER = "vivaldi";
   };
 }
