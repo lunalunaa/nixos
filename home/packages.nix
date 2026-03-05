@@ -110,8 +110,11 @@
       # ---------------------------------------------------------------- #
       cowsay
       gnupg
+      sox
     ])
     ++ (with pkgs-unstable; [
       qbittorrent-enhanced
+      lazyjj
+      lazygit
     ]);
 }
