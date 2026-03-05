@@ -12,6 +12,7 @@
     # Nix language server — used by editors at evaluation time before
     # Home Manager activates, so it lives at the system level too.
     nil
+    helix
   ];
 
   # ------------------------------------------------------------------ #
