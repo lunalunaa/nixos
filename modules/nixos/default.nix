@@ -13,5 +13,6 @@
     ./services.nix
     ./sound.nix
     ./users.nix
+    ./variables.nix
   ];
 }

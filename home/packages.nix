@@ -111,6 +111,7 @@
       cowsay
       gnupg
       sox
+      geeqie
     ])
     ++ (with pkgs-unstable; [
       qbittorrent-enhanced
