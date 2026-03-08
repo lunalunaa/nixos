@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   programs.waybar.settings = {
     mainBar = {
@@ -16,7 +16,6 @@
         "cpu"
         "memory"
         "disk"
-        "temperature"
       ];
 
       "modules-center" = [
@@ -29,7 +28,6 @@
         "pulseaudio/slider"
         "pulseaudio"
         "network"
-        "battery"
       ];
 
       "custom/nixicon" = {
@@ -62,12 +60,6 @@
         format = "{percentage_free}% ";
         tooltip = true;
         "tooltip-format" = "Free space: {free} / {total} ({percentage_free}%)";
-      };
-
-      temperature = {
-        format = "{temperatureC}°C {icon}";
-        tooltip = true;
-        "format-icons" = [ "" ];
       };
 
       battery = {
@@ -106,7 +98,6 @@
     #cpu,
     #memory,
     #disk,
-    #temperature,
     #idle_inhibitor,
     #pulseaudio,
     #pulseaudio-slider,
@@ -131,8 +122,8 @@
 
     /* Separation to the right */
     #clock,
-    #temperature,
-    #battery {
+    #disk,
+    #network {
       margin-right: 5px;
       border-top-right-radius: 10px;
       border-bottom-right-radius: 10px;
@@ -162,10 +153,6 @@
 
     #disk {
       background: #F5C2E7;
-    }
-
-    #temperature {
-      background: #F8BD96;
     }
 
     /* Modules center */
@@ -239,12 +226,6 @@
     }
 
     #pulseaudio-slider slider {}
-
-
-    #network {
-      background: #CBA6F7;
-      padding-right: 13px;
-    }
 
     #battery {
       background: #A6E3A1;
