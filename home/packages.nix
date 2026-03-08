@@ -90,7 +90,6 @@
       # Applications
       # ---------------------------------------------------------------- #
       firefox
-      telegram-desktop
       webcord-vencord
       motrix
       mpv
@@ -116,5 +115,6 @@
       qbittorrent-enhanced
       lazyjj
       lazygit
+      telegram-desktop
     ]);
 }
