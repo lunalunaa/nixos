@@ -110,6 +110,7 @@
       gnupg
       sox
       geeqie
+      difftastic
     ])
     ++ (with pkgs-unstable; [
       qbittorrent-enhanced

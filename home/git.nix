@@ -29,6 +29,12 @@
         name = vars.git.name;
         email = vars.git.email;
       };
+      diff-formatter = [
+        "difft"
+        "--color=always"
+        "$left"
+        "$right"
+      ];
     };
   };
 }
