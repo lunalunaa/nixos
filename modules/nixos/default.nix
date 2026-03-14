@@ -2,6 +2,7 @@
 # Add a new file here and reference it below to extend the system configuration.
 {
   imports = [
+    ./bluetooth.nix
     ./boot.nix
     ./containers.nix
     ./fish.nix

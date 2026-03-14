@@ -85,6 +85,7 @@
       swaybg
       pavucontrol
       bluetui
+      overskride
 
       # ---------------------------------------------------------------- #
       # Applications

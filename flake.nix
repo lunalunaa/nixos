@@ -29,7 +29,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    zed.url = "github:zed-industries/zed/c583fea973b93895aff9f358802ba9c46100664a"; # pinned: 0.226.0-nightly
+    zed.url = "github:zed-industries/zed/v0.227.1";
   };
 
   outputs =
