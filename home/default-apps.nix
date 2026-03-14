@@ -3,7 +3,7 @@
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "text/html" = "firefox.desktop";
+      "text/html" = "Vivaldi.desktop";
       "x-scheme-handler/http" = "Vivaldi.desktop";
       "x-scheme-handler/https" = "Vivaldi.desktop";
       "x-scheme-handler/about" = "Vivaldi.desktop";
