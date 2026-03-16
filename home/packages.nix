@@ -112,6 +112,7 @@
       sox
       geeqie
       difftastic
+      vlc
     ])
     ++ (with pkgs-unstable; [
       qbittorrent-enhanced
