@@ -1,5 +1,5 @@
 # modules/nixos/users.nix — primary user account definition.
-{ pkgs, vars, ... }:
+{ pkgs-unstable, vars, ... }:
 {
   users.users.${vars.username} = {
     isNormalUser = true;
@@ -9,8 +9,8 @@
       "podman"
       "wheel"
     ];
-    # Fish is set as the login shell at the system level so it is available
+    # zsh is set as the login shell at the system level so it is available
     # before Home Manager activates.
-    shell = pkgs.zsh;
+    shell = pkgs-unstable.zsh;
   };
 }

@@ -113,6 +113,8 @@
       geeqie
       difftastic
       vlc
+
+      signal-desktop
     ])
     ++ (with pkgs-unstable; [
       qbittorrent-enhanced
