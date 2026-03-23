@@ -15,5 +15,6 @@
     ./sound.nix
     ./users.nix
     ./variables.nix
+    ./steam.nix
   ];
 }
