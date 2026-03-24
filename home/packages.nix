@@ -85,7 +85,6 @@
       swaybg
       pavucontrol
       bluetui
-      overskride
 
       # ---------------------------------------------------------------- #
       # Applications
@@ -117,6 +116,7 @@
       signal-desktop
     ])
     ++ (with pkgs-unstable; [
+      overskride
       qbittorrent-enhanced
       lazyjj
       lazygit
