@@ -10,5 +10,6 @@
     ./nodejs.nix
     ./desktop
     ./default-apps.nix
+    ./agent.nix
   ];
 }

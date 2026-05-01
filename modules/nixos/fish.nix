@@ -7,5 +7,8 @@
     # Use the unstable version — it supports dynamic completion loading,
     # which is required for tools like jj to register their completions.
     package = pkgs-unstable.fish;
+    shellAliases = {
+      run = "nix run";
+    };
   };
 }
