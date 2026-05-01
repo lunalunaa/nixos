@@ -35,6 +35,7 @@
         "$left"
         "$right"
       ];
+      ui.default-command = "log";
     };
   };
 }
