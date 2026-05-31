@@ -30,8 +30,6 @@
     };
 
     zed.url = "github:zed-industries/zed/v1.4.4";
-
-    hermes-agent.url = "github:NousResearch/hermes-agent/main";
   };
 
   outputs =
