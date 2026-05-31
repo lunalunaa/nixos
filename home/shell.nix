@@ -1,5 +1,5 @@
 # home/shell.nix — shell programs, terminal emulators, and CLI utilities.
-{ pkgs-unstable, ... }:
+{ pkgs, ... }:
 {
   # ------------------------------------------------------------------ #
   # Shells
@@ -9,7 +9,7 @@
     enable = true;
     # Use unstable — it supports dynamic completion loading,
     # which is required for jj to register its completions at runtime.
-    package = pkgs-unstable.fish;
+    package = pkgs.unstable.fish;
   };
 
   programs.bash = {
@@ -76,6 +76,14 @@
   # yazi — terminal file manager.  Use unstable for theme support.
   programs.yazi = {
     enable = true;
-    package = pkgs-unstable.yazi;
+    package = pkgs.unstable.yazi;
+  };
+
+  # ------------------------------------------------------------------ #
+  # Shell aliases
+  # ------------------------------------------------------------------ #
+  programs.fish.shellAliases = {
+    run = "nix run";
+    hermes = "nix run github:NousResearch/hermes-agent -- ";
   };
 }

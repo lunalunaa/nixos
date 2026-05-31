@@ -1,11 +1,7 @@
 # home/packages.nix — user-level packages installed into the Home Manager profile.
 # Prefer adding programs with their own HM module (shell.nix, editors.nix, etc.)
 # and only fall back to raw packages here when no module exists.
-{
-  pkgs,
-  pkgs-unstable,
-  ...
-}:
+{ pkgs, ... }:
 {
   home.packages =
     (with pkgs; [
@@ -38,7 +34,6 @@
       ripgrep
       jq
       yq-go
-      eza
       fzf
       file
       which
@@ -76,6 +71,7 @@
       # ---------------------------------------------------------------- #
       # Development
       # ---------------------------------------------------------------- #
+      difftastic
 
       # ---------------------------------------------------------------- #
       # Desktop / Wayland utilities
@@ -89,33 +85,34 @@
       # ---------------------------------------------------------------- #
       # Applications
       # ---------------------------------------------------------------- #
-      firefox
       webcord-vencord
       motrix
       mpv
       vivaldi
       ffmpeg
+      vlc
+      geeqie
 
       # ---------------------------------------------------------------- #
       # Productivity
       # ---------------------------------------------------------------- #
       hugo
       glow
-      texlive.combined.scheme-full
+      texlive.combined.scheme-medium
+      gnupg
 
       # ---------------------------------------------------------------- #
       # Fun
       # ---------------------------------------------------------------- #
       cowsay
-      gnupg
       sox
-      geeqie
-      difftastic
-      vlc
 
+      # ---------------------------------------------------------------- #
+      # Communication
+      # ---------------------------------------------------------------- #
       signal-desktop
     ])
-    ++ (with pkgs-unstable; [
+    ++ (with pkgs.unstable; [
       overskride
       qbittorrent-enhanced
       lazyjj

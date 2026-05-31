@@ -4,13 +4,8 @@
 let
   vars = import ../../vars.nix;
 
-  pkgs-unstable = import inputs.nixpkgs-unstable {
-    inherit (vars) system;
-    config.allowUnfree = true;
-  };
-
   # Shared specialArgs passed to both NixOS modules and Home Manager.
-  specialArgs = { inherit inputs vars pkgs-unstable; };
+  specialArgs = { inherit inputs vars; };
 in
 inputs.nixpkgs.lib.nixosSystem {
   inherit (vars) system;
@@ -26,6 +21,12 @@ inputs.nixpkgs.lib.nixosSystem {
         overlays = [
           inputs.niri.overlays.niri
           inputs.nix-vscode-extensions.overlays.default
+          (final: prev: {
+            unstable = import inputs.nixpkgs-unstable {
+              inherit (prev.stdenv.hostPlatform) system;
+              config.allowUnfree = true;
+            };
+          })
         ];
       };
     }

@@ -10,6 +10,10 @@
 
   i18n.defaultLocale = vars.locale;
 
+  # Disable waiting for network online during boot to speed up startup.
+  systemd.network.wait-online.enable = false;
+  boot.initrd.systemd.network.wait-online.enable = false;
+
   networking.nftables.enable = true;
   networking.firewall = {
     enable = true;

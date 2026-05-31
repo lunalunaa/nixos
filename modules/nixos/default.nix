@@ -13,8 +13,9 @@
     ./nix.nix
     ./services.nix
     ./sound.nix
+    ./steam.nix
+    ./tailscale.nix
     ./users.nix
     ./variables.nix
-    ./steam.nix
   ];
 }

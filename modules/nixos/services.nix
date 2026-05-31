@@ -1,7 +1,6 @@
 # modules/nixos/services.nix — system services, daemons, and globally-installed programs.
 { pkgs, ... }:
 {
-  imports = [ ./tailscale.nix ];
   # ------------------------------------------------------------------ #
   # Globally-available CLI tools
   # ------------------------------------------------------------------ #
@@ -29,6 +28,8 @@
   # (e.g. downloaded scripts, VSCode extensions) run without patching.
   programs.nix-ld.enable = true;
 
+  # ZSH is installed at the system level so it exists as a login shell
+  # before Home Manager activates (used in users.nix for bootstrapping).
   programs.zsh.enable = true;
 
   # ------------------------------------------------------------------ #

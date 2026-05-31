@@ -1,5 +1,5 @@
 # home/git.nix — version control configuration driven by vars.
-{ pkgs-unstable, vars, ... }:
+{ pkgs, vars, ... }:
 {
   # ------------------------------------------------------------------ #
   # Git
@@ -23,7 +23,7 @@
   # ------------------------------------------------------------------ #
   programs.jujutsu = {
     enable = true;
-    package = pkgs-unstable.jujutsu;
+    package = pkgs.unstable.jujutsu;
     settings = {
       user = {
         name = vars.git.name;

@@ -3,13 +3,12 @@
 {
   imports = [
     ./core.nix
-    ./shell.nix
-    ./git.nix
-    ./editors
-    ./packages.nix
-    ./nodejs.nix
     ./desktop
+    ./editors
+    ./git.nix
+    ./nodejs.nix
+    ./packages.nix
+    ./shell.nix
     ./default-apps.nix
-    ./agent.nix
   ];
 }

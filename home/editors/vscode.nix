@@ -3,7 +3,6 @@
 # to the exact nixpkgs revision and host config locked in this flake.
 {
   pkgs,
-  pkgs-unstable,
   vars,
   ...
 }:
@@ -11,7 +10,7 @@
   programs.vscode = {
     enable = true;
     # VSCodium — identical to VS Code but with Microsoft telemetry stripped out.
-    package = pkgs-unstable.vscode;
+    package = pkgs.unstable.vscode;
 
     profiles.default = {
       # Let Nix own the version; disable the editor's built-in update checks.

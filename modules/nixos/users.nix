@@ -1,5 +1,5 @@
 # modules/nixos/users.nix — primary user account definition.
-{ pkgs-unstable, vars, ... }:
+{ pkgs, vars, ... }:
 {
   users.users.${vars.username} = {
     isNormalUser = true;
@@ -11,6 +11,6 @@
     ];
     # zsh is set as the login shell at the system level so it is available
     # before Home Manager activates.
-    shell = pkgs-unstable.zsh;
+    shell = pkgs.unstable.zsh;
   };
 }
