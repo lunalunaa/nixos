@@ -29,7 +29,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    zed.url = "github:zed-industries/zed/v1.1.8";
+    zed.url = "github:zed-industries/zed/v1.4.4";
 
     hermes-agent.url = "github:NousResearch/hermes-agent/main";
   };
