@@ -10,6 +10,11 @@
     # Use unstable — it supports dynamic completion loading,
     # which is required for jj to register its completions at runtime.
     package = pkgs.unstable.fish;
+    # fish 4.8.0 dropped share/fish/tools/create_manpage_completions.py,
+    # which home-manager's auto-generated manpage completions rely on.
+    # This breaks the build (nix-community/home-manager#8178) until
+    # home-manager adapts; disable auto-generation until then.
+    generateCompletions = false;
   };
 
   programs.bash = {

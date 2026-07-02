@@ -12,6 +12,6 @@
     };
 
     # Track the latest stable kernel.
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_7_0;
   };
 }

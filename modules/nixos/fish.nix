@@ -7,5 +7,9 @@
     # Use the unstable version — it supports dynamic completion loading,
     # which is required for tools like jj to register their completions.
     package = pkgs.unstable.fish;
+    # fish 4.8.0 dropped share/fish/tools/create_manpage_completions.py,
+    # which breaks NixOS's auto-generated manpage completions build
+    # (nix-community/home-manager#8178). Disable until upstream adapts.
+    generateCompletions = false;
   };
 }
